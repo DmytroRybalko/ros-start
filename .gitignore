@@ -1,7 +1,7 @@
 # ROS 2 build artifacts
-ros2_ws/build/
-ros2_ws/install/
-ros2_ws/log/
+build/
+install/
+log/
 
 # Python cache
 __pycache__/
@@ -11,8 +11,7 @@ __pycache__/
 .vscode/
 
 # Dev container metadata
-.devcontainer/.devcontainer.json
-.devcontainer/Dockerfile
+.devcontainer/
 
 # Colcon install files (optional)
 *.egg-info/
