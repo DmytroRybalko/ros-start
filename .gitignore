@@ -1,0 +1,39 @@
+# ROS 2 build artifacts
+build/
+install/
+log/
+
+# Colcon/ament/rosdep
+.colcon/
+.rosdep/
+.ament/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code settings (optional, keep .devcontainer/)
+.vscode/
+
+# Editor/OS files
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Bash history (if persisted)
+.bash_history
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Misc
+*.log
+*.bak
+
+# Ignore local repos file if present
+packages.repos
