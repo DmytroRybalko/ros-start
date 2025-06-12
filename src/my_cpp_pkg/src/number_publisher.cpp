@@ -1,3 +1,16 @@
+/*
+This node publishes an integer value to the "number" topic (example_interfaces::msg::Int64) at a fixed interval.
+
+- number_publisher_: Publishes integer messages to the "number" topic.
+- number_timer_: Triggers the periodic publishing.
+- number_: Stores the value to be published.
+
+Every time the timer fires, publishNumber() creates a new Int64 message with the value of number_ and publishes it to "number".
+
+Example:
+If number_ is set to 2, this node will publish 2 on "number" every second.
+*/
+
 #include "rclcpp/rclcpp.hpp"
 #include "example_interfaces/msg/int64.hpp"
  
