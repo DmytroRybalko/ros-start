@@ -1,3 +1,16 @@
+/*
+add_two_ints_client.cpp
+
+This node implements a ROS 2 service client for the "add_two_ints" service (example_interfaces::srv::AddTwoInts).
+
+- The client creates a request with two integers (a and b) and sends it to the "add_two_ints" service.
+- It waits for the server to respond with the sum.
+- The client logs the request and the received result using RCLCPP_INFO.
+
+Example:
+If the client sends a=3 and b=5, it will receive sum=8 from the server and log "Result: 8".
+*/
+
 #include "rclcpp/rclcpp.hpp"
 #include "example_interfaces/srv/add_two_ints.hpp"
  
