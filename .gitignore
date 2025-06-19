@@ -13,7 +13,7 @@ __pycache__/
 *.pyc
 
 # VS Code settings (optional, keep .devcontainer/)
-.vscode/
+#.vscode/
 
 # Editor/OS files
 *.swp
