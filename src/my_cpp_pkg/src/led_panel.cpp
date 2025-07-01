@@ -39,11 +39,21 @@ private:
     {
         // We need to read led_number and set state for that led_number
         // Check if led_number is valid
-        if (request->led_number >= 0 && request->led_number <static_cast<int64_t>(led_states.size())) {
+        if (request->led_number >= 0 && request->led_number < static_cast<int64_t>(led_states.size()))
+        {
             led_states[request->led_number] = request->state;
-            response->success = true;
-        } else {
-            response->success = false;
+            if (request->state > 0)
+            {
+                response->success = true;
+            }
+            else
+            {
+                response->success = false;
+            }
+        }
+        else
+        {
+            RCLCPP_WARN(this->get_logger(), "Led number is out of range!");   
         }
     }
     
