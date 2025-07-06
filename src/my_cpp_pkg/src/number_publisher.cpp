@@ -17,11 +17,16 @@ If number_ is set to 2, this node will publish 2 on "number" every second.
 class NumberPublisherNode : public rclcpp::Node
 {
 public:
-    NumberPublisherNode() : Node("number_publisher"), number_(2)
+    NumberPublisherNode() : Node("number_publisher")
     {
+        this->declare_parameter("number", 2);
+        this->declare_parameter("timer_period", 1.0);
+        number_ = this->get_parameter("number").as_int();
+        double timer_period = this->get_parameter("timer_period").as_double();
+
         number_publisher_ = this->create_publisher<example_interfaces::msg::Int64>("number", 10);
         number_timer_ = this->create_wall_timer(
-            std::chrono::seconds(1),
+            std::chrono::duration<double>(timer_period),
             std::bind(&NumberPublisherNode::publishNumber, this));
         RCLCPP_INFO(this->get_logger(), "Number Publisher has been started");
     }
