@@ -4,8 +4,10 @@
 class RobotNewsStationNode : public rclcpp::Node
 {
 public:
-    RobotNewsStationNode() : Node("robot_news_station"), robot_name_("R2D2")
+    RobotNewsStationNode() : Node("robot_news_station")
     {
+        this->declare_parameter("robot_name", "New_name");
+        this->get_parameter("robot_name", robot_name_);
         publisher_ = this->create_publisher<example_interfaces::msg::String>("robot_news", 10);
         timer_ = this->create_wall_timer(
             std::chrono::seconds(1),
@@ -39,3 +41,4 @@ int main(int argc, char **argv)
 // ros2 topic echo /robot_news
 // ros2 node info /robot_news_station
 // ros2 node list
+// ros2 run my_cpp_pkg robot_news_station --ros-args -p robot_name:='ROS3' 
