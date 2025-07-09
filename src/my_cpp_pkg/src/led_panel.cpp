@@ -7,6 +7,8 @@ class LedPanelNode : public rclcpp::Node
 public:
     LedPanelNode() : Node("led_panel_publisher")
     {
+        this->declare_parameter("led_states", led_states);
+        this->get_parameter("led_states", led_states);
         pub_ = this->create_publisher<my_robot_interfaces::msg::LedPanelState>(
             "led_panel_state", 10);
         server_ = this->create_service<my_robot_interfaces::srv::SetLed>(
@@ -71,3 +73,6 @@ int main(int argc, char **argv)
     rclcpp::shutdown();
     return 0;
 }
+
+//ros2 run my_cpp_pkg led_panel_state --ros-args -p led_states:="[1,0,0]"
+//ros2 run my_cpp_pkg led_panel_state --ros-args -r __node:=led_states2 --params-file ~/ros_ws/src/ros2_ws/src/my_cpp_pkg/src/yaml_parameters/led_states.yaml 
